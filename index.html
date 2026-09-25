@@ -3,190 +3,509 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SecureNation — Building a Safer Digital Nation</title>
-<meta name="description" content="SecureNation is a digital safety and cybersecurity awareness platform.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<title>SecureNation | Building a Safer Digital Nation</title>
+
 <style>
-:root{
-  --navy:#13235b;--blue:#356dff;--cyan:#18c8e8;--purple:#7b4dff;
-  --pink:#ff4fa3;--yellow:#ffc94a;--green:#21c58b;--bg:#f7f9ff;
-  --text:#18213d;--muted:#66708d;--white:#fff;
-}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Inter,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-a{text-decoration:none;color:inherit}
-button,input,textarea,select{font:inherit}
-nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(15px);border-bottom:1px solid #e9edfa}
-.nav-inner{max-width:1180px;margin:auto;height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
-.logo{display:flex;align-items:center;gap:10px;font-family:Poppins;font-weight:800;color:var(--navy);font-size:20px}
-.logo-mark{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--purple),var(--pink));display:grid;place-items:center;color:#fff;font-size:21px;box-shadow:0 8px 22px #6b63ff3d}
-.links{display:flex;gap:28px;font-size:14px;font-weight:600;color:#4f5876}
-.links a:hover{color:var(--blue)}
-.nav-btn{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;padding:11px 18px;border-radius:12px;font-weight:700;font-size:13px;box-shadow:0 9px 20px #5c62ff30}
-.hero{padding:150px 22px 90px;position:relative;overflow:hidden;background:linear-gradient(135deg,#eef4ff 0%,#fff6fc 48%,#f0ffff 100%)}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.55}
-.hero:before{width:420px;height:420px;background:#b7d5ff;right:-120px;top:-100px}
-.hero:after{width:330px;height:330px;background:#ffc8e8;left:-150px;bottom:-170px}
-.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center;position:relative;z-index:1}
-.badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #dfe7ff;padding:8px 13px;border-radius:999px;color:#42548e;font-size:12px;font-weight:700;box-shadow:0 8px 25px #5464a014}
-.dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 0 5px #21c58b20}
-h1{font-family:Poppins;font-size:clamp(40px,6vw,67px);line-height:1.03;margin:22px 0 18px;letter-spacing:-2.5px;color:var(--navy)}
-.gradient-text{background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{font-size:18px;color:var(--muted);max-width:620px}
-.actions{display:flex;gap:13px;margin-top:28px;flex-wrap:wrap}
-.primary,.secondary{padding:14px 20px;border-radius:13px;font-weight:800;border:0;cursor:pointer}
-.primary{color:#fff;background:linear-gradient(135deg,var(--blue),var(--purple));box-shadow:0 13px 28px #5b5eff35}
-.secondary{background:#fff;color:var(--navy);border:1px solid #dde4f5}
-.dashboard{background:#fff;border:1px solid #e0e6f7;border-radius:25px;padding:20px;box-shadow:0 30px 70px #273b7a1c;transform:rotate(1deg)}
-.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.dash-title{font-family:Poppins;font-weight:700}.live{font-size:11px;color:#118e67;background:#dff9ef;padding:6px 9px;border-radius:99px;font-weight:800}
-.score{border-radius:20px;padding:22px;background:linear-gradient(135deg,#eef2ff,#fdf0ff);display:flex;align-items:center;gap:20px}
-.circle{width:105px;height:105px;border-radius:50%;background:conic-gradient(var(--purple) 0 82%,#e5e8f7 82%);display:grid;place-items:center;position:relative}
-.circle:after{content:"";position:absolute;width:78px;height:78px;border-radius:50%;background:#fff}
-.circle b{position:relative;z-index:1;font-size:22px;color:var(--navy)}
-.score small{color:var(--muted)}.score h3{font-family:Poppins;margin:3px 0}
-.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-.mini{padding:14px;border-radius:15px;background:#f8f9fe}.mini b{display:block;font-size:18px}.mini span{font-size:11px;color:var(--muted)}
-section{padding:90px 22px}.container{max-width:1180px;margin:auto}
-.section-head{text-align:center;max-width:720px;margin:0 auto 45px}
-.kicker{text-transform:uppercase;letter-spacing:2px;color:var(--blue);font-weight:800;font-size:12px}
-h2{font-family:Poppins;color:var(--navy);font-size:38px;line-height:1.15;margin:9px 0 13px}
-.section-head p{color:var(--muted)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:#fff;border:1px solid #e5e9f5;border-radius:21px;padding:27px;box-shadow:0 12px 35px #263a7610;transition:.25s}
-.card:hover{transform:translateY(-6px);box-shadow:0 20px 45px #263a7618}
-.icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:24px;margin-bottom:18px}
-.i-blue{background:#e8efff}.i-pink{background:#ffe7f3}.i-yellow{background:#fff4cf}.i-green{background:#e0f9ef}.i-purple{background:#eee8ff}.i-cyan{background:#e1f9ff}
-.card h3{font-family:Poppins;color:var(--navy);margin-bottom:7px}.card p{color:var(--muted);font-size:14px}
-.stats{background:linear-gradient(135deg,#142663,#3e48a8 55%,#8b4eff);color:#fff}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}.stat b{display:block;font-family:Poppins;font-size:38px}.stat span{opacity:.8;font-size:13px}
-.learn{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
-.checks{display:grid;gap:12px;margin-top:22px}.check{background:#fff;border:1px solid #e6eaf5;border-radius:15px;padding:15px;display:flex;gap:12px;align-items:flex-start}.check strong{display:block}.check span{font-size:13px;color:var(--muted)}
-.visual{min-height:390px;border-radius:28px;background:linear-gradient(135deg,#dfe9ff,#ffe4f1);position:relative;overflow:hidden;padding:30px}
-.shield{position:absolute;width:190px;height:220px;left:50%;top:50%;transform:translate(-50%,-50%);background:linear-gradient(145deg,#396dff,#7a4dff 65%,#f451aa);clip-path:polygon(50% 0,91% 15%,86% 67%,50% 100%,14% 67%,9% 15%);filter:drop-shadow(0 20px 25px #4b4cd844)}
-.lock{position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);font-size:62px;color:#fff}
-.float{position:absolute;background:#fff;padding:12px 16px;border-radius:14px;box-shadow:0 15px 35px #273b7a20;font-weight:800;font-size:13px}.f1{top:40px;left:30px}.f2{right:25px;top:100px}.f3{bottom:45px;left:45px}
-.report{background:linear-gradient(135deg,#f1f5ff,#fff0f8)}
-.form{max-width:720px;margin:auto;background:#fff;padding:30px;border-radius:24px;box-shadow:0 20px 60px #293a7817}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800;color:#4e5875}.field input,.field textarea,.field select{border:1px solid #dfe5f3;border-radius:12px;padding:12px 13px;outline:none;background:#fbfcff}.field textarea{min-height:120px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#7a70ff;box-shadow:0 0 0 4px #7a70ff15}
-footer{background:#101c48;color:#cbd3ef;padding:45px 22px 25px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer-logo{color:#fff;font-family:Poppins;font-size:20px}.footer-note{font-size:13px;max-width:450px}.copyright{max-width:1180px;margin:30px auto 0;padding-top:20px;border-top:1px solid #ffffff18;font-size:12px;color:#8793b7}
-.toast{position:fixed;right:20px;bottom:20px;background:#17265d;color:#fff;padding:15px 18px;border-radius:13px;box-shadow:0 15px 40px #101b4838;display:none;z-index:50;font-size:13px}.toast.show{display:block;animation:pop .2s ease}
-@keyframes pop{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
-@media(max-width:850px){.links{display:none}.hero-inner,.learn{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.stat-grid{grid-template-columns:1fr 1fr}.dashboard{transform:none}}
-@media(max-width:560px){h2{font-size:30px}.cards{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero{padding-top:125px}.stat b{font-size:29px}}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#07111f;
+color:#fff;
+line-height:1.6
+}
+nav{
+position:sticky;top:0;z-index:100;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 7%;
+background:rgba(7,17,31,.95);
+border-bottom:1px solid #203452;
+backdrop-filter:blur(12px)
+}
+.logo{font-size:25px;font-weight:800;color:#5ee7ff}
+.logo span{color:#8d7cff}
+nav a{color:#dce8f7;text-decoration:none;margin-left:22px;font-weight:600}
+nav a:hover{color:#5ee7ff}
+
+.hero{
+min-height:650px;
+display:flex;align-items:center;
+padding:80px 7%;
+background:
+radial-gradient(circle at 80% 20%,#263b87 0,transparent 35%),
+radial-gradient(circle at 10% 80%,#075d68 0,transparent 35%),
+#07111f
+}
+.hero-content{max-width:800px}
+.badge{
+display:inline-block;
+padding:8px 15px;border:1px solid #35557d;
+border-radius:30px;color:#65e6ff;
+background:#10233a;margin-bottom:22px
+}
+h1{font-size:clamp(45px,7vw,82px);line-height:1.05;margin-bottom:25px}
+.gradient{
+background:linear-gradient(90deg,#5ee7ff,#8d7cff,#ff67c7);
+-webkit-background-clip:text;color:transparent
+}
+.hero p{font-size:20px;color:#b9c9dd;max-width:680px}
+.buttons{margin-top:32px}
+.btn{
+display:inline-block;padding:14px 22px;border-radius:12px;
+text-decoration:none;font-weight:700;margin-right:10px;margin-bottom:10px
+}
+.primary{background:#5ee7ff;color:#06101d}
+.secondary{border:1px solid #456486;color:white}
+
+section{padding:80px 7%}
+.section-title{text-align:center;font-size:40px;margin-bottom:12px}
+.section-sub{text-align:center;color:#9db0c8;margin-bottom:45px}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:22px
+}
+.card{
+background:linear-gradient(145deg,#101f35,#0b1729);
+border:1px solid #243b59;
+border-radius:20px;
+padding:28px;
+transition:.25s
+}
+.card:hover{transform:translateY(-6px);border-color:#5ee7ff}
+.icon{font-size:40px;margin-bottom:15px}
+.card h3{font-size:22px;margin-bottom:10px}
+.card p{color:#9fb1c7}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:18px;margin-top:30px
+}
+.stat{
+text-align:center;padding:28px;
+background:#0e1c30;border-radius:18px;border:1px solid #223957
+}
+.stat h2{font-size:40px;color:#5ee7ff}
+
+.tool{
+max-width:850px;margin:25px auto;
+background:#0e1c30;border:1px solid #294360;
+padding:28px;border-radius:20px
+}
+input,textarea,select{
+width:100%;padding:14px;margin:8px 0 15px;
+border-radius:10px;border:1px solid #36506d;
+background:#081421;color:white;font-size:16px
+}
+textarea{min-height:120px}
+button{
+padding:13px 20px;border:0;border-radius:10px;
+background:#5ee7ff;color:#06101d;font-weight:800;
+cursor:pointer
+}
+.result{
+margin-top:18px;padding:16px;border-radius:12px;
+background:#091827;display:none
+}
+
+.quiz-question{
+margin-bottom:25px;padding:20px;
+background:#0b192b;border-radius:15px;
+border:1px solid #263f5c
+}
+.option{
+display:block;margin:10px 0;padding:10px;
+background:#13253c;border-radius:8px
+}
+.option input{width:auto;margin-right:8px}
+
+.help-card{
+padding:25px;border-radius:18px;
+background:linear-gradient(135deg,#151f45,#102e3d);
+border:1px solid #315478
+}
+
+footer{
+padding:35px 7%;text-align:center;
+border-top:1px solid #203452;color:#8296af
+}
+.small{font-size:14px;color:#758ba4;margin-top:8px}
+
+@media(max-width:700px){
+nav{flex-direction:column;gap:12px}
+nav a{margin:0 7px;font-size:13px}
+.hero{min-height:580px}
+section{padding:60px 5%}
+}
 </style>
 </head>
+
 <body>
+
 <nav>
- <div class="nav-inner">
-  <a class="logo" href="#home"><span class="logo-mark">🛡️</span>SecureNation</a>
-  <div class="links">
-   <a href="#about">About</a><a href="#services">Services</a><a href="#learn">Learn</a><a href="#report">Report</a>
-  </div>
-  <a class="nav-btn" href="#report">Report Incident</a>
- </div>
+<div class="logo">🛡️ Secure<span>Nation</span></div>
+<div>
+<a href="#services">Services</a>
+<a href="#tools">Tools</a>
+<a href="#quiz">Quiz</a>
+<a href="#help">Help</a>
+<a href="#report">Report</a>
+</div>
 </nav>
 
-<header class="hero" id="home">
- <div class="hero-inner">
-  <div>
-   <span class="badge"><span class="dot"></span> DIGITAL SAFETY PLATFORM</span>
-   <h1>Building a <span class="gradient-text">Safer Digital Nation.</span></h1>
-   <p>SecureNation helps people understand cyber threats, protect their digital identity, and respond confidently to online incidents.</p>
-   <div class="actions"><a class="primary" href="#services">Explore Security →</a><a class="secondary" href="#learn">Learn Cyber Safety</a></div>
-  </div>
-  <div class="dashboard">
-   <div class="dash-top"><div class="dash-title">Security Dashboard</div><span class="live">● SYSTEM ONLINE</span></div>
-   <div class="score"><div class="circle"><b>82%</b></div><div><small>Digital Safety Score</small><h3>Good Protection</h3><small>Complete the learning checklist to improve your score.</small></div></div>
-   <div class="mini-grid"><div class="mini"><b>24/7</b><span>Awareness</span></div><div class="mini"><b>100%</b><span>Privacy First</span></div><div class="mini"><b>6+</b><span>Safety Areas</span></div></div>
-  </div>
- </div>
-</header>
+<section class="hero">
+<div class="hero-content">
+<div class="badge">🔐 Cybersecurity • Awareness • Digital Trust</div>
 
-<section id="about">
- <div class="container">
-  <div class="section-head"><span class="kicker">Why SecureNation</span><h2>Cyber safety made simple.</h2><p>A student-built platform designed to make cybersecurity awareness practical, visual and easy to understand.</p></div>
-  <div class="cards">
-   <div class="card"><div class="icon i-blue">🔐</div><h3>Digital Protection</h3><p>Learn practical ways to secure accounts, devices, passwords and personal information.</p></div>
-   <div class="card"><div class="icon i-pink">🚨</div><h3>Threat Awareness</h3><p>Recognize phishing, scams, social engineering, malware and other common online threats.</p></div>
-   <div class="card"><div class="icon i-yellow">🧠</div><h3>Smart Decisions</h3><p>Build better digital habits through clear explanations, checklists and awareness resources.</p></div>
-  </div>
- </div>
-</section>
+<h1>Building a <span class="gradient">Safer Digital Nation.</span></h1>
 
-<section class="stats">
- <div class="container stat-grid">
-  <div class="stat"><b>24/7</b><span>Digital Awareness</span></div>
-  <div class="stat"><b>6+</b><span>Security Topics</span></div>
-  <div class="stat"><b>100%</b><span>Education Focus</span></div>
-  <div class="stat"><b>1</b><span>Safer Digital Nation</span></div>
- </div>
+<p>
+SecureNation is a student-built cybersecurity platform designed
+to promote cyber awareness, identify common online threats,
+and help people respond safely to digital incidents.
+</p>
+
+<div class="buttons">
+<a class="btn primary" href="#tools">Explore Security Tools</a>
+<a class="btn secondary" href="#quiz">Test Your Knowledge</a>
+</div>
+</div>
 </section>
 
 <section id="services">
- <div class="container">
-  <div class="section-head"><span class="kicker">Security Hub</span><h2>Explore our safety toolkit.</h2><p>Start with the areas that matter most to everyday digital life.</p></div>
-  <div class="cards">
-   <div class="card"><div class="icon i-purple">🪪</div><h3>Identity Safety</h3><p>Protect personal information, accounts and digital identity from misuse.</p></div>
-   <div class="card"><div class="icon i-cyan">🎣</div><h3>Phishing Protection</h3><p>Spot suspicious links, fake messages, impersonation and social-engineering tricks.</p></div>
-   <div class="card"><div class="icon i-green">📱</div><h3>Device Security</h3><p>Use updates, secure settings, backups and safe downloads to reduce risk.</p></div>
-   <div class="card"><div class="icon i-pink">💳</div><h3>Online Payments</h3><p>Understand safer payment habits and what to do when something looks suspicious.</p></div>
-   <div class="card"><div class="icon i-yellow">☁️</div><h3>Cloud Safety</h3><p>Learn about access control, strong authentication and responsible data sharing.</p></div>
-   <div class="card"><div class="icon i-blue">🛡️</div><h3>Incident Response</h3><p>Report an incident and receive a reference number for your submission.</p></div>
-  </div>
- </div>
+<h2 class="section-title">Our Mission</h2>
+<p class="section-sub">Making cybersecurity simple, accessible and understandable.</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🛡️</div>
+<h3>Cyber Protection</h3>
+<p>Learn practical methods to protect accounts, devices and personal information.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎓</div>
+<h3>Cyber Awareness</h3>
+<p>Understand phishing, scams, passwords, social engineering and online safety.</p>
+</div>
+
+<div class="card">
+<div class="icon">🚨</div>
+<h3>Incident Response</h3>
+<p>Get simple guidance about what to do when something suspicious happens.</p>
+</div>
+
+<div class="card">
+<div class="icon">🌐</div>
+<h3>Digital Trust</h3>
+<p>Promoting responsible and secure participation in the digital world.</p>
+</div>
+
+</div>
+
+<div class="stats">
+<div class="stat"><h2>24/7</h2><p>Awareness</p></div>
+<div class="stat"><h2>5+</h2><p>Security Tools</p></div>
+<div class="stat"><h2>100%</h2><p>Student Project</p></div>
+<div class="stat"><h2>∞</h2><p>Learning</p></div>
+</div>
 </section>
 
-<section id="learn">
- <div class="container learn">
-  <div>
-   <span class="kicker">Quick Learning</span><h2>Small habits. Stronger protection.</h2>
-   <p style="color:var(--muted)">Use this checklist before sharing information, clicking links or signing into an unfamiliar service.</p>
-   <div class="checks">
-    <div class="check"><b>✓</b><div><strong>Use unique passwords</strong><span>Never reuse your most important password across multiple services.</span></div></div>
-    <div class="check"><b>✓</b><div><strong>Turn on MFA</strong><span>Multi-factor authentication adds another layer beyond your password.</span></div></div>
-    <div class="check"><b>✓</b><div><strong>Verify before clicking</strong><span>Check the sender, destination and context of unexpected messages.</span></div></div>
-    <div class="check"><b>✓</b><div><strong>Keep devices updated</strong><span>Install security updates from trusted sources.</span></div></div>
-   </div>
-  </div>
-  <div class="visual"><div class="shield"></div><div class="lock">🔒</div><div class="float f1">🔑 Strong Passwords</div><div class="float f2">⚡ MFA Enabled</div><div class="float f3">✓ Device Protected</div></div>
- </div>
+<section id="tools">
+<h2 class="section-title">Interactive Security Tools</h2>
+<p class="section-sub">Try our simple cybersecurity utilities.</p>
+
+<div class="tool">
+<h2>🔎 Scam & Phishing Checker</h2>
+<p class="small">
+Paste a suspicious message or website text below.
+This is an educational keyword-based checker, not a real threat-intelligence service.
+</p>
+
+<textarea id="scamText" placeholder="Paste suspicious message here..."></textarea>
+<button onclick="checkScam()">Check Message</button>
+<div id="scamResult" class="result"></div>
+</div>
+
+<div class="tool">
+<h2>🔑 Password Strength Checker</h2>
+<p class="small">Your password is checked locally in your browser.</p>
+
+<input type="password" id="password" placeholder="Enter a password">
+<button onclick="checkPassword()">Check Strength</button>
+<div id="passwordResult" class="result"></div>
+</div>
+
 </section>
 
-<section class="report" id="report">
- <div class="container">
-  <div class="section-head"><span class="kicker">Incident Reporting</span><h2>Report a cyber incident.</h2><p>Submit the basic details below. This demo application generates a reference number through its backend.</p></div>
-  <form class="form" id="reportForm">
-   <div class="form-grid">
-    <div class="field"><label>Incident Type</label><select id="type" required><option value="">Choose one</option><option>Phishing / Scam</option><option>Account Compromise</option><option>Identity Theft</option><option>Malware</option><option>Online Harassment</option><option>Other</option></select></div>
-    <div class="field"><label>Your Name</label><input id="name" placeholder="Optional"></div>
-    <div class="field full"><label>What happened?</label><textarea id="description" required placeholder="Describe the incident without sharing passwords, OTPs or other sensitive secrets."></textarea></div>
-    <div class="field full"><button class="primary" type="submit">Submit Secure Report →</button></div>
-   </div>
-  </form>
- </div>
+<section id="quiz">
+<h2 class="section-title">🧠 Cyber Awareness Quiz</h2>
+<p class="section-sub">Test your cybersecurity knowledge.</p>
+
+<div class="tool">
+
+<div class="quiz-question">
+<h3>1. What should you do with a suspicious link?</h3>
+<label class="option"><input type="radio" name="q1" value="1"> Open it immediately</label>
+<label class="option"><input type="radio" name="q1" value="0"> Avoid opening it and verify the sender</label>
+</div>
+
+<div class="quiz-question">
+<h3>2. Which password is safer?</h3>
+<label class="option"><input type="radio" name="q2" value="0"> password123</label>
+<label class="option"><input type="radio" name="q2" value="1"> A long unique password</label>
+</div>
+
+<div class="quiz-question">
+<h3>3. What is phishing?</h3>
+<label class="option"><input type="radio" name="q3" value="1"> A fraudulent attempt to obtain information</label>
+<label class="option"><input type="radio" name="q3" value="0"> A type of computer hardware</label>
+</div>
+
+<div class="quiz-question">
+<h3>4. Should you share an OTP with someone calling you?</h3>
+<label class="option"><input type="radio" name="q4" value="0"> Yes</label>
+<label class="option"><input type="radio" name="q4" value="1"> No</label>
+</div>
+
+<div class="quiz-question">
+<h3>5. What is two-factor authentication?</h3>
+<label class="option"><input type="radio" name="q5" value="1"> An additional verification step</label>
+<label class="option"><input type="radio" name="q5" value="0"> A type of antivirus</label>
+</div>
+
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="quizResult" class="result"></div>
+
+</div>
+</section>
+
+<section id="help">
+<h2 class="section-title">🚨 What Should I Do?</h2>
+<p class="section-sub">Quick guidance for common digital emergencies.</p>
+
+<div class="grid">
+
+<div class="help-card">
+<h3>🔗 Suspicious Link</h3>
+<p>Do not click it. Verify the sender and website independently.</p>
+</div>
+
+<div class="help-card">
+<h3>📱 Hacked Account</h3>
+<p>Change the password, enable two-factor authentication and review account activity.</p>
+</div>
+
+<div class="help-card">
+<h3>💳 Payment Fraud</h3>
+<p>Contact your bank or payment provider immediately and preserve transaction details.</p>
+</div>
+
+<div class="help-card">
+<h3>📩 Scam Message</h3>
+<p>Do not provide OTPs, passwords or financial information. Report suspicious messages.</p>
+</div>
+
+</div>
+</section>
+
+<section id="report">
+<h2 class="section-title">🚩 Report a Cyber Incident</h2>
+<p class="section-sub">Submit basic information about a cybersecurity incident.</p>
+
+<div class="tool">
+
+<label>Incident Type</label>
+<select id="incidentType">
+<option value="">Select incident</option>
+<option>Phishing</option>
+<option>Online Scam</option>
+<option>Account Hacking</option>
+<option>Payment Fraud</option>
+<option>Data Leak</option>
+<option>Other</option>
+</select>
+
+<label>Description</label>
+<textarea id="incidentDescription"
+placeholder="Describe what happened..."></textarea>
+
+<button onclick="reportIncident()">Submit Report</button>
+
+<div id="reportResult" class="result"></div>
+
+</div>
 </section>
 
 <footer>
- <div class="footer-inner"><div><div class="footer-logo">🛡️ SecureNation</div><div class="footer-note">Building a Safer Digital Nation — a college-level cybersecurity and digital-trust project.</div></div><div class="footer-note">Stay alert. Verify before you trust. Protect what matters.</div></div>
- <div class="copyright">© 2026 SecureNation. Educational project.</div>
+<h3>🛡️ SecureNation</h3>
+<p>Building a Safer Digital Nation.</p>
+<p class="small">College Cybersecurity & Digital Trust Project</p>
 </footer>
-<div class="toast" id="toast"></div>
+
 <script>
-const toast=document.getElementById("toast");
-function showToast(msg){toast.textContent=msg;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),4000)}
-document.getElementById("reportForm").addEventListener("submit",async e=>{
- e.preventDefault();
- const type=document.getElementById("type").value, description=document.getElementById("description").value;
- try{
-  const r=await fetch("/api/report",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type,description})});
-  const data=await r.json();
-  if(data.success){showToast("✓ Report submitted. Reference: "+data.reference);e.target.reset();}
-  else showToast(data.message||"Could not submit report.");
- }catch(err){showToast("Server connection problem. Please try again.");}
+
+function checkScam(){
+
+const text=document.getElementById("scamText").value.toLowerCase();
+
+const result=document.getElementById("scamResult");
+
+if(!text.trim()){
+result.style.display="block";
+result.innerHTML="⚠️ Please enter a message to check.";
+return;
+}
+
+const keywords=[
+"otp",
+"urgent",
+"verify your account",
+"click here",
+"claim prize",
+"winner",
+"lottery",
+"bank account",
+"send money",
+"password",
+"credit card",
+"free gift",
+"kyc"
+];
+
+let found=keywords.filter(word=>text.includes(word));
+
+result.style.display="block";
+
+if(found.length>=2){
+
+result.innerHTML=
+"🚨 <strong>Potential warning signs detected.</strong><br><br>"+
+"Keywords found: "+found.join(", ")+
+"<br><br>Do not share passwords, OTPs or financial information.";
+
+}else{
+
+result.innerHTML=
+"🟢 No obvious warning keywords were detected.<br><br>"+
+"Still verify the sender and website before taking action.";
+
+}
+
+}
+
+function checkPassword(){
+
+const password=document.getElementById("password").value;
+
+const result=document.getElementById("passwordResult");
+
+let score=0;
+
+if(password.length>=8)score++;
+if(password.length>=12)score++;
+if(/[A-Z]/.test(password))score++;
+if(/[a-z]/.test(password))score++;
+if(/[0-9]/.test(password))score++;
+if(/[^A-Za-z0-9]/.test(password))score++;
+
+let message="";
+
+if(score<=2){
+message="🔴 Weak password";
+}else if(score<=4){
+message="🟡 Medium password";
+}else{
+message="🟢 Strong password";
+}
+
+result.style.display="block";
+result.innerHTML="<strong>"+message+"</strong><br>Use a long, unique password and avoid reusing passwords.";
+
+}
+
+function submitQuiz(){
+
+let score=0;
+
+for(let i=1;i<=5;i++){
+
+const answer=document.querySelector('input[name="q'+i+'"]:checked');
+
+if(answer)score+=Number(answer.value);
+
+}
+
+const result=document.getElementById("quizResult");
+
+result.style.display="block";
+
+result.innerHTML=
+"🎯 Your score: <strong>"+score+"/5</strong><br><br>"+
+(score===5?
+"Excellent! You have strong cyber awareness. 🛡️":
+"Keep learning! Cybersecurity awareness improves with practice. 🔐");
+
+}
+
+async function reportIncident(){
+
+const type=document.getElementById("incidentType").value;
+
+const description=document.getElementById("incidentDescription").value;
+
+const result=document.getElementById("reportResult");
+
+if(!type || !description.trim()){
+
+result.style.display="block";
+result.innerHTML="⚠️ Please complete both fields.";
+return;
+
+}
+
+try{
+
+const response=await fetch("/api/report",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+type:type,
+description:description
+})
 });
+
+const data=await response.json();
+
+result.style.display="block";
+
+if(data.success){
+
+result.innerHTML=
+"✅ Report submitted successfully.<br><br>"+
+"Reference ID: <strong>"+data.reference+"</strong>";
+
+}else{
+
+result.innerHTML="⚠️ "+(data.message||"Unable to submit report.");
+
+}
+
+}catch(error){
+
+result.style.display="block";
+
+result.innerHTML=
+"⚠️ The report service is currently unavailable. Please try again.";
+
+}
+
+}
+
 </script>
+
 </body>
 </html>
