@@ -363,6 +363,45 @@ return;
 const keywords=[
 "otp",
 "urgent",
+"immediately",
+"verify your account",
+"click here",
+"claim prize",
+"prize",
+"winner",
+"lottery",
+"bank account",
+"send money",
+"password",
+"credit card",
+"free gift",
+"kyc"
+];
+
+let found=keywords.filter(word=>text.includes(word));
+
+result.style.display="block";
+
+if(found.length>=2){
+
+result.innerHTML=
+"🚨 <strong>Potential warning signs detected.</strong><br><br>"+
+"Keywords found: "+found.join(", ")+
+"<br><br>Do not share passwords, OTPs or financial information.";
+
+}else{
+
+result.innerHTML=
+"🟢 No obvious warning keywords were detected.<br><br>"+
+"Still verify the sender and website before taking action.";
+
+}
+
+}
+
+const keywords=[
+"otp",
+"urgent",
 "verify your account",
 "click here",
 "claim prize",
